@@ -250,13 +250,15 @@ export class Document extends cdk.Construct implements cdk.ITaggable {
       ],
     });
 
+    const cdkRootDir = process.cwd();
+    const lambdaPath = path.join(cdkRootDir, 'gitsubmodules/cdk-ssm-document/lambda/code.zip');
     const fn = new lambda.Function(stack, constructName, {
       functionName: `${stack.stackName}-${cleanID}`,
       role: role,
       description: 'Custom CFN resource: Manage SSM Documents',
       runtime: lambda.Runtime.NODEJS_10_X,
       handler: 'index.handler',
-      code: lambda.Code.fromAsset(path.join(__dirname, '../lambda/code.zip')),
+      code: lambda.Code.fromAsset(lambdaPath),
       timeout: cdk.Duration.minutes(lambdaTimeout),
     });
 
