@@ -1,8 +1,8 @@
+import * as statement from 'cdk-iam-floyd';
 import cfn = require('@aws-cdk/aws-cloudformation');
 import iam = require('@aws-cdk/aws-iam');
 import lambda = require('@aws-cdk/aws-lambda');
 import cdk = require('@aws-cdk/core');
-import * as statement from 'cdk-iam-floyd';
 import yaml = require('js-yaml');
 import path = require('path');
 
@@ -175,24 +175,24 @@ export class Document extends cdk.Construct implements cdk.ITaggable {
 
     if (name.length < 3 || name.length > 128) {
       this.node.addError(
-        `SSM Document name ${name} is invalid. The name must be between 3 and 128 characters.`
+        `SSM Document name ${name} is invalid. The name must be between 3 and 128 characters.`,
       );
       return;
     }
 
-    let content = props.content;
+    let { content } = props;
 
     if (typeof content === 'string') {
-      content = yaml.safeLoad(content) as DocumentContent;
+      content = yaml.load(content) as DocumentContent;
     }
 
     const document = new cfn.CustomResource(this, `SSM-Document-${name}`, {
       provider: cfn.CustomResourceProvider.fromLambda(fn),
-      resourceType: resourceType,
+      resourceType,
       properties: {
         updateDefaultVersion: props.updateDefaultVersion || true,
-        name: name,
-        content: content,
+        name,
+        content,
         documentType: props.documentType || 'Command',
         targetType: props.targetType || '/',
         StackName: stack,
@@ -245,7 +245,7 @@ export class Document extends cdk.Construct implements cdk.ITaggable {
       managedPolicies: [
         policy,
         iam.ManagedPolicy.fromAwsManagedPolicyName(
-          'service-role/AWSLambdaBasicExecutionRole'
+          'service-role/AWSLambdaBasicExecutionRole',
         ),
       ],
     });
@@ -254,7 +254,7 @@ export class Document extends cdk.Construct implements cdk.ITaggable {
     const lambdaPath = path.join(cdkRootDir, 'gitsubmodules/cdk-ssm-document/lambda/code.zip');
     const fn = new lambda.Function(stack, constructName, {
       functionName: `${stack.stackName}-${cleanID}`,
-      role: role,
+      role,
       description: 'Custom CFN resource: Manage SSM Documents',
       runtime: lambda.Runtime.NODEJS_10_X,
       handler: 'index.handler',
