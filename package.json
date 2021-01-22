@@ -76,11 +76,11 @@
     "cdk-iam-floyd": "^0.120.0"
   },
   "peerDependencies": {
-    "@aws-cdk/aws-cloudformation": "1.79.0",
-    "@aws-cdk/aws-iam": "1.79.0",
-    "@aws-cdk/aws-lambda": "1.79.0",
-    "@aws-cdk/core": "1.79.0",
+    "@aws-cdk/aws-cloudformation": "1.85.0",
+    "@aws-cdk/aws-iam": "1.85.0",
+    "@aws-cdk/aws-lambda": "1.85.0",
+    "@aws-cdk/core": "1.85.0",
     "constructs": "^3.2.113",
-    "cdk-iam-floyd": "^0.110.0"
+    "cdk-iam-floyd": "^0.120.0"
   }
 }
