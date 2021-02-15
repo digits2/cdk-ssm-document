@@ -73,7 +73,7 @@
     "@aws-cdk/aws-iam": "1.88.0",
     "@aws-cdk/aws-lambda": "1.88.0",
     "@aws-cdk/core": "1.88.0",
-    "cdk-iam-floyd": "^0.130.0"
+    "cdk-iam-floyd": "^0.131.0"
   },
   "peerDependencies": {
     "@aws-cdk/aws-cloudformation": "1.85.0",
