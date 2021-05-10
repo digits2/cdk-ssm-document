@@ -48,9 +48,9 @@ function Create(event: Event): Promise<Event | AWS.AWSError> {
 function Update(event: Event): Promise<Event | AWS.AWSError> {
   return new Promise(function (resolve, reject) {
     updateDocument(event)
-      // .then(updateDocumentAddTags)
-      // .then(updateDocumentRemoveTags)
-      // .then(updateDocumentDefaultVersion)
+      .then(updateDocumentAddTags)
+      .then(updateDocumentRemoveTags)
+      .then(updateDocumentDefaultVersion)
       .then(function (data) {
         event.addResponseValue('Name', event.ResourceProperties.Name);
         resolve(data);
