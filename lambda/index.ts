@@ -1,6 +1,7 @@
 import { CustomResource, Event, LambdaEvent, StandardLogger } from 'aws-cloudformation-custom-resource';
 import { Callback, Context } from 'aws-lambda';
 import AWS = require('aws-sdk');
+import yaml = require('js-yaml');
 
 const ssm = new AWS.SSM();
 const logger = new StandardLogger();
@@ -22,11 +23,13 @@ function Create(event: Event): Promise<Event | AWS.AWSError> {
     `Attempting to create SSM document ${event.ResourceProperties.Name}`
   );
   return new Promise(function (resolve, reject) {
+    const data:any = yaml.load(event.ResourceProperties.Content);
     ssm.createDocument(
       {
         Name: event.ResourceProperties.Name,
-        Content: JSON.stringify(event.ResourceProperties.Content),
+        Content: data,
         DocumentType: event.ResourceProperties.DocumentType,
+        DocumentFormat: 'YAML',
         TargetType: event.ResourceProperties.TargetType || defaultTargetType,
         Tags: makeTags(event, event.ResourceProperties),
       },
@@ -80,11 +83,14 @@ function updateDocument(event: Event): Promise<Event | AWS.AWSError> {
       );
       return resolve(event);
     }
+    
+    const data:any = yaml.load(event.ResourceProperties.Content);
     ssm.updateDocument(
       {
         Name: event.ResourceProperties.Name,
-        Content: JSON.stringify(event.ResourceProperties.Content),
+        Content: data,
         TargetType: event.ResourceProperties.targetType || defaultTargetType,
+        DocumentFormat: 'YAML',
         DocumentVersion: '$LATEST',
       },
       function (err: AWS.AWSError, data: AWS.SSM.UpdateDocumentResult) {
