@@ -268,4 +268,5 @@ export class Document extends cdk.Construct implements cdk.ITaggable {
   private fixDocumentName(name: string): string {
     return name.replace(/[^a-zA-Z0-9_.-]+/g, '-');
   }
+
 }
