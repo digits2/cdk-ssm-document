@@ -18,7 +18,7 @@ specifiers:
   jsii: ^1.17.1
   jsii-pacmak: ^1.17.1
   ts-node: ^9.1.1
-  typescript: ~4.1.3
+  typescript: ~4.1.6
 
 dependencies:
   '@aws-cdk/aws-cloudformation': 1.101.0
@@ -39,8 +39,8 @@ devDependencies:
   esbuild: 0.12.8
   jsii: 1.30.0
   jsii-pacmak: 1.30.0
-  ts-node: 9.1.1_typescript@4.1.5
-  typescript: 4.1.5
+  ts-node: 9.1.1_typescript@4.1.6
+  typescript: 4.1.6
 
 packages:
 
@@ -986,7 +986,7 @@ packages:
       '@jsii/spec': 1.30.0
       commonmark: 0.29.3
       fs-extra: 9.1.0
-      typescript: 3.9.9
+      typescript: 3.9.10
       xmldom: 0.6.0
       yargs: 16.2.0
     dev: true
@@ -1006,7 +1006,7 @@ packages:
       semver-intersect: 1.4.0
       sort-json: 2.0.0
       spdx-license-list: 6.4.0
-      typescript: 3.9.9
+      typescript: 3.9.10
       yargs: 16.2.0
     transitivePeerDependencies:
       - supports-color
@@ -1282,7 +1282,7 @@ packages:
       strip-ansi: 6.0.0
     dev: true
 
-  /ts-node/9.1.1_typescript@4.1.5:
+  /ts-node/9.1.1_typescript@4.1.6:
     resolution: {integrity: sha512-hPlt7ZACERQGf03M253ytLY3dHbGNGrAq9qIHWUY9XHYl1z7wYngSr3OQ5xmui8o2AaxsONxIzjafLUiWBo1Fg==}
     engines: {node: '>=10.0.0'}
     hasBin: true
@@ -1294,18 +1294,18 @@ packages:
       diff: 4.0.2
       make-error: 1.3.6
       source-map-support: 0.5.19
-      typescript: 4.1.5
+      typescript: 4.1.6
       yn: 3.1.1
     dev: true
 
-  /typescript/3.9.9:
-    resolution: {integrity: sha512-kdMjTiekY+z/ubJCATUPlRDl39vXYiMV9iyeMuEuXZh2we6zz80uovNN2WlAxmmdE/Z/YQe+EbOEXB5RHEED3w==}
+  /typescript/3.9.10:
+    resolution: {integrity: sha512-w6fIxVE/H1PkLKcCPsFqKE7Kv7QUwhU8qQY2MueZXWx5cPZdwFupLgKK3vntcK98BtNHZtAF4LA/yl2a7k8R6Q==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
 
-  /typescript/4.1.5:
-    resolution: {integrity: sha512-6OSu9PTIzmn9TCDiovULTnET6BgXtDYL4Gg4szY+cGsc3JP1dQL8qvE8kShTRx1NIw4Q9IBHlwODjkjWEtMUyA==}
+  /typescript/4.1.6:
+    resolution: {integrity: sha512-pxnwLxeb/Z5SP80JDRzVjh58KsM6jZHRAOtTpS7sXLS4ogXNKC9ANxHHZqLLeVHZN35jCtI4JdmLLbLiC1kBow==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
