@@ -9,17 +9,17 @@
     "cdk": "cdk"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "1.106.1",
+    "@aws-cdk/assert": "1.116.0",
     "@types/node": "14.14.22",
-    "aws-cdk": "1.106.1",
+    "aws-cdk": "1.116.0",
     "cdk-ssm-document": "file:..",
     "esbuild": "^0.12.0",
     "ts-node": "^9.1.1",
-    "typescript": "~4.1.6"
+    "typescript": "4.3.2"
   },
   "dependencies": {
-    "@aws-cdk/aws-lambda-nodejs": "1.106.1",
-    "@aws-cdk/core": "1.106.1",
+    "@aws-cdk/aws-lambda-nodejs": "1.116.0",
+    "@aws-cdk/core": "1.116.0",
     "source-map-support": "^0.5.19"
   },
   "peerDependencies": {
